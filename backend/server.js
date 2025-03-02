@@ -24,6 +24,11 @@ app.use(
     })
 );
 
+// ✅ Add a root route to avoid 'Cannot GET /' error
+app.get('/', (req, res) => {
+    res.send('Server is running!');
+});
+
 app.use('/interview', feedbackRoutes);
 app.use('/hrpage', hrRoutes);
 app.use('/work', workRoutes);
